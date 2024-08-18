@@ -23,8 +23,8 @@ class ModalSheet extends StatelessWidget {
               title: 'your note',
               lines: 8,
             ),
-            CustomBtn(
-              icon: const Icon(
+            const CustomBtn(
+              icon: Icon(
                 Icons.add,
                 size: 40,
                 color: Color.fromARGB(255, 23, 93, 128),

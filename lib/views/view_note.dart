@@ -25,8 +25,8 @@ class ViewNote extends StatelessWidget {
             title: 'your note',
             lines: 8,
           ),
-          CustomBtn(
-            icon: const Icon(
+          const CustomBtn(
+            icon: Icon(
               Icons.check,
               size: 40,
               color: Color.fromARGB(255, 23, 93, 128),

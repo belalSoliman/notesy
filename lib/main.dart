@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:notesy/models/note_model.dart';
 import 'package:notesy/views/home_page.dart';
 
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox('notes');
+  Hive.registerAdapter(NoteModelAdapter());
   runApp(const Notesy());
 }
 

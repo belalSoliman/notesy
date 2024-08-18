@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomBtn extends StatelessWidget {
-  const CustomBtn({super.key, required this.icon});
+  const CustomBtn({super.key, required this.icon, this.onpress});
   final Icon icon;
-
+  final Function()? onpress;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +20,7 @@ class CustomBtn extends StatelessWidget {
         enableFeedback: true,
         visualDensity: VisualDensity.comfortable,
         alignment: Alignment.center,
-        onPressed: () {},
+        onPressed: onpress,
       ),
     );
   }

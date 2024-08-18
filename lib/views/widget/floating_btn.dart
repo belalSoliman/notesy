@@ -19,7 +19,15 @@ class FloatingBtn extends StatelessWidget {
       highlightElevation: 20,
       onPressed: () {
         showModalBottomSheet(
-            context: context, builder: (context) => const ModalSheet());
+            shape: const RoundedRectangleBorder(
+              side: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(7),
+                top: Radius.circular(20),
+              ),
+            ),
+            context: context,
+            builder: (context) => const ModalSheet());
       },
       child: const Icon(Icons.add),
     );

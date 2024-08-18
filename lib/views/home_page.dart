@@ -8,7 +8,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
+        ),
         elevation: 0,
         title: const Padding(
             padding: EdgeInsets.all(8.0),
@@ -30,7 +34,14 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: const NotesView(),
+      body: const Column(
+        children: [
+          SizedBox(
+            height: 5,
+          ),
+          NotesView(),
+        ],
+      ),
     );
   }
 }

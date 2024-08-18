@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:notesy/views/widget/custom_btn.dart';
 import 'text_field.dart';
 
 class ModalSheet extends StatelessWidget {
@@ -7,21 +7,32 @@ class ModalSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: MediaQuery.of(context).size.height * 0.7,
-        width: MediaQuery.of(context).size.width * 1,
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
         child: Column(
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             const CustoemTextFiled(
               title: 'Title',
               lines: 1,
             ),
             const CustoemTextFiled(
               title: 'your note',
-              lines: 5,
+              lines: 8,
+            ),
+            CustomBtn(
+              icon: const Icon(
+                Icons.add,
+                size: 40,
+                color: Color.fromARGB(255, 23, 93, 128),
+              ),
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

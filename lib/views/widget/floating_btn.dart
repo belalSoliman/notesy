@@ -20,7 +20,7 @@ class FloatingBtn extends StatelessWidget {
       onPressed: () {
         showModalBottomSheet(
             shape: const RoundedRectangleBorder(
-              side: BorderSide(color: Colors.red),
+              side: BorderSide(color: Colors.white10),
               borderRadius: BorderRadius.vertical(
                 bottom: Radius.circular(7),
                 top: Radius.circular(20),

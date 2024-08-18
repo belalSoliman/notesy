@@ -13,7 +13,7 @@ class CustoemTextFiled extends StatelessWidget {
           style: const TextStyle(color: Colors.black),
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white,
+            fillColor: Colors.grey.withOpacity(0.5),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(color: Colors.white),

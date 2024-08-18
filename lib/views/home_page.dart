@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:notesy/views/notes_view.dart';
 
+import 'package:notesy/views/widget/floating_btn.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: const FloatingBtn(),
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -29,7 +32,7 @@ class HomePage extends StatelessWidget {
             icon: const Icon(
               Icons.search,
               size: 40,
-              color: Colors.blueGrey,
+              color: Color.fromARGB(255, 23, 93, 128),
             ),
           )
         ],

@@ -27,7 +27,7 @@ class FloatingBtn extends StatelessWidget {
               ),
             ),
             context: context,
-            builder: (context) => const ModalSheet());
+            builder: (context) => ModalSheet());
       },
       child: const Icon(Icons.add),
     );

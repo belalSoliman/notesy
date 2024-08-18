@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notesy/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notesy/views/widget/notes_form.dart';
 
 class ModalSheet extends StatelessWidget {
-  const ModalSheet({super.key});
-
+  ModalSheet({super.key});
+  bool isloading = false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -12,7 +14,22 @@ class ModalSheet extends StatelessWidget {
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
-        child: const NotesForm(),
+        child: BlocConsumer<AddNoteCubit, AddNoteState>(
+          listener: (context, state) {
+            // TODO: implement listener
+            if (state is AddNoteFailure) {
+              print(state.error);
+            }
+            if (state is AddNoteSuccess) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+                inAsyncCall: state is AddNoteLoading ? true : false,
+                child: const NotesForm());
+          },
+        ),
       ),
     );
   }

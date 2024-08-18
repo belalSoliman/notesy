@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notesy/views/notes_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -29,9 +30,7 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: const Center(
-        child: Text('Home'),
-      ),
+      body: const NotesView(),
     );
   }
 }

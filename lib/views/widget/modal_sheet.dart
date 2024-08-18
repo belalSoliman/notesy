@@ -9,7 +9,8 @@ class ModalSheet extends StatelessWidget {
   bool isloading = false;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
       child: Padding(
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -27,7 +28,7 @@ class ModalSheet extends StatelessWidget {
           builder: (context, state) {
             return ModalProgressHUD(
                 inAsyncCall: state is AddNoteLoading ? true : false,
-                child: const NotesForm());
+                child: const SingleChildScrollView(child: NotesForm()));
           },
         ),
       ),

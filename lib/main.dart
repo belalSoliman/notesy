@@ -10,8 +10,8 @@ import 'package:notesy/views/home_page.dart';
 void main() async {
   Bloc.observer = SimpleBlocObserver();
   await Hive.initFlutter();
-  await Hive.openBox('notes');
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>('notes');
   runApp(const Notesy());
 }
 
@@ -20,20 +20,13 @@ class Notesy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => AddNoteCubit(),
-        ),
-      ],
-      child: MaterialApp(
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          fontFamily: 'Poppins',
-        ),
-        debugShowCheckedModeBanner: false,
-        home: const HomePage(),
+    return MaterialApp(
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'Poppins',
       ),
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
     );
   }
 }

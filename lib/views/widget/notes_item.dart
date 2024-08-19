@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:notesy/models/note_model.dart';
 import 'package:notesy/views/view_note.dart';
 
 class NotesItem extends StatelessWidget {
-  const NotesItem({super.key});
+  const NotesItem({super.key, required this.note});
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +23,14 @@ class NotesItem extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(color: Colors.white),
               borderRadius: BorderRadius.circular(20),
-              color: const Color.fromARGB(255, 6, 88, 229),
+              color: Color(note.color),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ListTile(
                   title: AutoSizeText(
-                    'Flutter Tips and Tricks',
+                    note.title,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: MediaQuery.of(context).size.width *
@@ -36,10 +38,10 @@ class NotesItem extends StatelessWidget {
                     ),
                     maxLines: 1,
                   ),
-                  subtitle: const Padding(
+                  subtitle: Padding(
                     padding: EdgeInsets.symmetric(vertical: 9),
                     child: AutoSizeText(
-                      'Flutter is a cross-platform app development framework created by Google. It is used to build cross-platform applications for Android, iOS, Linux, Mac, Windows, and the web.',
+                      note.content,
                       style: TextStyle(fontSize: 24), // Start font size
                       maxLines: 4,
                       minFontSize: 14, // Minimum font size
@@ -47,20 +49,22 @@ class NotesItem extends StatelessWidget {
                     ),
                   ),
                   trailing: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      note.delete();
+                    },
                     icon: Icon(
                       Icons.delete,
                       size: MediaQuery.of(context).size.width * 0.1,
                     ),
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: (8.0), vertical: 12),
                   child:
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                     Text(
-                      "may ,4 , 22",
+                      note.date,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

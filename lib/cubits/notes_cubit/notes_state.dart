@@ -9,7 +9,7 @@ class NotesLoading extends NotesState {}
 
 class NotesError extends NotesState {
   final String error;
-  NotesError({required this.error});
+  NotesError(this.error);
 }
 
 class NotesSuccess extends NotesState {

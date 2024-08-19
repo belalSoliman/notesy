@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notesy/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:notesy/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesy/views/widget/notes_form.dart';
 
 class ModalSheet extends StatelessWidget {
@@ -22,6 +23,7 @@ class ModalSheet extends StatelessWidget {
               print(state.error);
             }
             if (state is AddNoteSuccess) {
+              BlocProvider.of<NotesCubit>(context).fetchNote();
               Navigator.pop(context);
             }
           },

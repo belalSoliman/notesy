@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notesy/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notesy/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesy/models/note_model.dart';
 import 'package:notesy/views/widget/custom_btn.dart';
 import 'package:notesy/views/widget/text_field.dart';

@@ -21,15 +21,15 @@ class Notesy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        fontFamily: 'Poppins',
-      ),
-      debugShowCheckedModeBanner: false,
-      home: BlocProvider(
-        create: (context) => NotesCubit()..fetchNote(),
-        child: HomePage(),
+    return BlocProvider(
+      create: (context) => NotesCubit()..fetchNote(),
+      child: MaterialApp(
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: 'Poppins',
+        ),
+        debugShowCheckedModeBanner: false,
+        home: HomePage(),
       ),
     );
   }
